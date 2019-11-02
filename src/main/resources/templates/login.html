@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>DEMO后台管理系统 - 登录</title>
+<meta name="keywords" content="后台管理系统">
+<meta name="description" content="basics">
+<link href="../static/basics/css/style.css" th:href="@{/basics/css/style.css?v=1.0.0}" rel="stylesheet" />
+<!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+<link rel="shortcut icon" href="../static/favicon.ico" th:href="@{favicon.ico}" />
+<style type="text/css">
+label.error {
+	position: inherit;
+}
+</style>
+<script>
+        if(window.top!==window.self){window.top.location=window.location};
+    </script>
+</head>
+
+<body>
+	<h1>DEMO后台管理系统</h1>
+	<div class="container w3layouts agileits">
+		<div class="login w3layouts agileits">
+			<h2>登 录</h2>
+			<form method="post" id="signupForm">
+				<input type="text" name="username" placeholder="用户名"> 
+				<input type="password" name="password" placeholder="密码"> 
+				<input type="text" name="validateCode"  placeholder="验证码" style="width: 60%">
+				<span class="w3layouts agileits code_img_span">
+				<a href="javascript:void(0);" title="点击更换验证码" class="code_img"> <img th:src="@{captcha/captchaImage(type=${captchaType})}" class="imgcode" width="80%" /></a>
+				</span>
+				<ul class="tick w3layouts agileits">
+			     <li><input type="checkbox" id="rememberMe" name="rememberMe" value="true"> <label for="rememberMe"><span></span>记住我</label></li>
+			    </ul>
+				<div class="send-button w3layouts agileits">
+					<button  id="btnSubmit" data-loading="正在验证登录，请稍后...">登录</button>
+				</div>
+			</form>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="footer w3layouts agileits">
+		<p>
+			© Copyright 2018 版权所有:DEMO后台管理系统<br>粤ICP备17632619号-1
+		</p>
+	</div>
+
+
+	<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]]; </script>
+	<!-- 全局js -->
+	<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+	<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	<!-- 验证插件 -->
+	<script src="../static/ajax/libs/validate/jquery.validate.min.js" th:src="@{/ajax/libs/validate/jquery.validate.min.js}"></script>
+	<script src="../static/ajax/libs/validate/messages_zh.min.js" th:src="@{/ajax/libs/validate/messages_zh.min.js}"></script>
+	<script src="../static/ajax/libs/layer/layer.min.js" th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+	<script src="../static/ajax/libs/iCheck/icheck.min.js" th:src="@{/ajax/libs/iCheck/icheck.min.js}"></script>
+	<script src="../static/ajax/libs/blockUI/jquery.blockUI.js" th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
+	<script src="http://tajs.qq.com/stats?sId=62048022"></script>
+	<script src="../static/basics/js/basics-ui.js" th:src="@{/basics/js/basics-ui.js?v=2.4.0}"></script>
+	<script src="../static/basics/login.js" th:src="@{/basics/login.js}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basics.system.mapper.CuCustomerMapper">
+
+    <select id="selectLv" resultType="com.basics.system.entity.CuCustomer">
+      SELECT DISTINCT
+			r.customer_id,
+			r.customer_name,
+			r.customer_head,
+			r.customer_phone,
+			r.invite_code,
+			r.referee_id,
+			r.referee_phone,
+			r.level_id,
+			l.level_name
+		FROM
+			cu_customer r
+		LEFT JOIN app_level l ON l.level_id = r.level_id
+		<where>${ew.sqlSegment}</where>
+    </select>
+
+</mapper>
